@@ -17,7 +17,8 @@ export default {
       timestamp: timestamp, // 必填，生成签名的时间戳
       nonceStr: nonce_str, // 必填，生成签名的随机串
       signature: signature, // 必填，签名
-      jsApiList: ['previewImage', 'chooseWXPay', 'updateAppMessageShareData'] // 必填，需要使用的JS接口列表,
+      jsApiList: ['previewImage', 'chooseWXPay', 'updateAppMessageShareData', 'wx-open-launch-app'],
+      openTagList: ['wx-open-launch-weapp'] // 跳转小程序时必填 // 必填，需要使用的JS接口列表,
     })
     wx.error(function(res) {
       // config信息验证失败会执行error函数，如签名过期导致验证失败，具体错误信息可以打开config的debug模式查看，也可以在返回的res参数中查看，对于SPA可以在这里更新签名。

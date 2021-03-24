@@ -11,7 +11,18 @@
       <router-link to="/communication" class="">
         去我的交流页面
       </router-link > -->
-      <index-list></index-list>
+      <!-- <index-list></index-list> -->
+       <wx-open-launch-weapp
+            class="openweapp"
+            id="launch-btn"
+            username="gh_wxc75f0a2b2511d538"
+            path="pages/offline/index"
+          >
+            <script type="text/wxtag-template">
+              <style>.btn { padding: 12px;opacity:0 }</style>
+              <button class="btn">打开小程序</button>
+            </script>
+      </wx-open-launch-weapp>
     </div>
     <van-cell icon="success" v-for="item in list" :key="item" :title="item" />
 
@@ -40,6 +51,13 @@ export default {
   },
 
   mounted() {
+    var btn = document.getElementById('launch-btn')
+    btn.addEventListener('launch', function(e) {
+      console.log('success')
+    })
+    btn.addEventListener('error', function(e) {
+      console.log('fail', e.detail)
+    })
   },
 
   methods: {
